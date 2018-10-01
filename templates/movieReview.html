@@ -1,0 +1,264 @@
+<style>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+ .main {
+ background-color: rgba(255, 255, 255, 0.5);
+ margin-top: 100px;
+ padding-bottom: 50px;
+ }
+ .main h1 {
+ font-size: 3.5em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+ .main h2 {
+ font-size: 2em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+ .main h3 {
+ font-size: 2em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+ .main p {
+ font-size:1em;
+ font-family: Arial;
+ color: #2E3759;
+ }
+
+ .main button {
+          padding: 1vh 2vw;
+          background-color: #6960EC;
+          color: white;
+          border-radius: 16px;
+          border-color: white;
+          padding-left: 12px;
+          padding-right: 12px;
+          font-size: 20px;
+          font-weight: bold;
+      }
+
+
+
+ body {
+    background-image: url("static/img/5.png");
+    /* background-repeat: no-repeat; */
+    background-size: 1700px 1400px;
+
+}
+
+</style>
+
+<script>
+// document.getElementById("recommendButton").style.visibility = 'hidden';
+var dude = 567;
+window.onload = pre_loader;
+
+function pre_loader() {
+    // document.getElementById('recommendButton').style.visibility='hidden';
+    document.getElementById('recommendButton').style.opacity=0;
+    // document.getElementById("dude").innerHTML=dude;
+}
+
+
+
+index = 1
+index2 = 1
+user_index = 0
+user_num = 1
+num_poster_per_user = 3
+posterlinks = []
+
+
+var completeSet = [];
+
+
+function filltextbox() {
+var jets = 'Toy Story (1995555)'
+document.getElementById("age").value = jets;
+console.log("clicked ")
+}
+
+
+function changeUserTitle(user_num) {
+document.getElementById("userNumber").innerText = "User " +  user_num + " Reviews";
+console.log('this is working?' + user_num)
+}
+
+
+var accumulate = [];
+
+function changeImage2(button){
+// document.getElementById("test").src="static/img/HarryPotter.jpg";
+// console.log('hey')
+var counts = JSON.parse("{{ test }}");
+
+console.log("_______")
+
+console.log(button)
+// console.log(movie1)
+
+if ((button == "up") || (button == "down")) {
+  user_index = user_index + 1;
+  if (user_index % num_poster_per_user == 0){
+  user_num = user_num + 1
+  // alert("Next User");
+  changeUserTitle(user_num)
+  // document.getElementById("userNumber").value = "user number: " + user_num;
+
+
+	}
+} if (user_num == {{numOfusers}} + 1) {
+    console.log("users are done")
+    document.getElementById('recommendButton').style.opacity=100;
+    document.getElementById('image1').style.opacity=0;
+    document.getElementById('image12').style.opacity=0;
+    document.getElementById('image13').style.opacity=0;
+    document.getElementById('test').style.opacity=0;
+    document.getElementById("userNumber").style.opacity=0;
+    document.getElementById('loading_gif').style.display = "show";
+
+    }
+// }
+
+console.log("user index: " + user_index)
+console.log("num of user is: " + user_num)
+
+
+
+var posters = "{{random_title}}";
+posters1 = posters.split("&#39;");
+
+
+var titlemovies = "{{total_link}}";
+titlemovies1 = titlemovies.split("&#39;");
+index2 = index2+2
+console.log("title of movie: " + titlemovies1 [index2])
+
+
+var posterlinks = "{{selectionOfposter}}"
+posterlinks1 = posterlinks.split("&#39;");
+console.log("posterlinks: " + posterlinks1 [index2])
+
+var posterTitles = "{{selectionOftitles}}"
+posterTitles1 = posterTitles.split("&#39;");
+console.log("posterTitles: " + posterTitles1 [index])
+
+index = index+2
+console.log("fuck" + posters1 [index])
+// document.getElementById("test").src=posters1 [index];
+document.getElementById("test").src=posterlinks1[index];
+
+// completeSet = [titlemovies1 [index2],user_num,button,posters1 [index]]
+// console.log(completeSet)
+
+// completeSet2 = [posterTitles1 [index],user_num,button,posterlinks1 [index]]
+completeSet2 = [posterTitles1 [index]]
+
+if (button== 'up'){
+  accumulate.push(completeSet2)
+// alert("Next User");
+}
+
+console.log(completeSet2)
+console.log(accumulate)
+
+}
+
+function filltextbox2(accumulate) {
+document.getElementById("age").value = accumulate;
+console.log("here" + accumulate[0])
+
+}
+
+
+
+
+</script>
+
+    <title>Review Movies</title>
+
+  </head>
+  <body>
+
+<div class="main">
+  <div style="text-align:center">
+    <br><br>
+    <div class="starter-template">
+
+
+    </div>
+  <br><br>
+
+<!-- This is good stuff  that can be used  -->
+  <!-- <div><h3 id="userNumber2"> ur age is {{numOfusers}}</h3></div>
+  <div><h3 id="fromFirstPage"> page one text {{age}}</h3></div>
+  <div><h3 id="userNumber3"> users menu {{dude}}</h3></div>
+  <div><h3 id="userNumber4"> java {{results_from_java}}</h3></div>
+  <div><h3 id="allgenres"> Allgeneres:  {{genre_selected}}</h3></div>
+  <ul>
+          {% for n in total_link %}
+          <li>{{n}}</li>
+          {% endfor %}
+  </ul>
+
+  <ul>
+          {% for n in random_title %}
+          <li>{{n}}</li>
+          {% endfor %}
+  </ul>
+
+  <ul>
+          {% for n in selectionOfposter %}
+          <li>{{n}}</li>
+          {% endfor %}
+  </ul>
+
+  <div><h3 id="fromJAVA123"> coming from JAVA:fromJav</h3></div> -->
+
+
+
+
+  <div><h3 name = 'userNumber' id="userNumber">User 1 Reviews</h3></div>
+
+
+
+
+  <!-- <p> -->
+
+    <!-- <img id = "test", src={{random_title[0]}} width="250" height="400"> -->
+    <img id = "test", src={{selectionOfposter[0]}} width="250" height="400">
+    <img style="display: none;" id = "loading_gif", src="static/img/loader.gif" width="250" height="180">
+
+    <!-- <input class="input" type="text" name="title"> -->
+
+  <!-- </p> -->
+  <br><br>
+
+<button2 id="image1" onclick="changeImage2('down')"><img src="static/img/down.png" width="44" height="48"></button>
+
+<button2 id="image12" onclick="changeImage2('up')"><img src="static/img/up.png" width="44" height="48"></button>
+<br><br>
+<button id="image13" onclick="changeImage2('skip')" type="submit" >Didn't Watch</button>
+
+
+  <br><br><br>
+<form action='/movieRecommendations', method='POST'>
+
+  <input type="hidden" name = 'age' id = "age">
+
+
+  <!-- <input type='text' id='fromJAVA222' /> -->
+
+  <button onclick='filltextbox2(accumulate)' id="recommendButton" style="none"  type="submit">Get Movie Recommendations!</button>
+  <!-- <div id="dude"> yo {{dude}}</div> -->
+</form>
+ <!-- style="display:hidden" -->
+  </div>
+</div>
+</body>
+
+<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
