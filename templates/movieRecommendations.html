@@ -28,6 +28,7 @@
  color: #2E3759;
  }
 
+
  body {
         background-image: url("static/img/5.png");
         /* background-repeat: no-repeat; */
@@ -66,11 +67,18 @@
     z-index:1;
     bottom:0;
     right:0;
-
-
-
  }
 
+ .fade {
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+    }
+
+    .fade:hover {
+       opacity: 0.5;
+       }
 </style>
 
 
@@ -86,7 +94,6 @@
 <h3>Movie Suggestions</h3>
 
 
-<br><br>
 <!-- <img src="{{presentThese[0]}}" width="250" height="400">
 <img src="{{presentThese[1]}}" width="250" height="400">
 <img src="{{presentThese[2]}}" width="250" height="400">
@@ -107,28 +114,50 @@
 <img src="{{presentThese[14]}}" width="250" height="400">
 <img src="{{presentThese[15]}}" width="250" height="400"> -->
 
-<br><br>
-<img src="{{presentThese[0]}}" width="250" height="400">
-<!-- <img src="{{presentThese[1]}}" width="250" height="400"> -->
+
+
+
+<!-- <img src="{{presentThese[0]}}" width="250" height="400">
 <img src="{{presentThese[2]}}" width="250" height="400">
 <img src="{{presentThese[3]}}" width="250" height="400">
 <img src="{{presentThese[5]}}" width="250" height="400">
 
 <br><br>
-<!-- <img src="{{presentThese[4]}}" width="250" height="400"> -->
 <img src="{{presentThese[6]}}" width="250" height="400">
 <img src="{{presentThese[8]}}" width="250" height="400">
 <img src="{{presentThese[10]}}" width="250" height="400">
 <img src="{{presentThese[12]}}" width="250" height="400">
+ -->
 
-<!-- <img src="{{presentThese[7]}}" width="250" height="400"> -->
+
+
+
+
 <br><br>
-<!-- <img src="{{presentThese[9]}}" width="250" height="400"> -->
-<!-- <img src="{{presentThese[11]}}" width="250" height="400"> -->
+<a href="{{presentTheseLinks[0]}}">
+<img class="fade" id="tryme" src="{{presentThese[0]}}" width="250" height="400">
+</a>
+<a href="{{presentTheseLinks[1]}}">
+<img class="fade" src="{{presentThese[1]}}" width="250" height="400">
+</a>
+<a href="{{presentTheseLinks[2]}}">
+<img class="fade" src="{{presentThese[2]}}" width="250" height="400">
+</a>
+<a href="{{presentTheseLinks[3]}}">
+<img class="fade" src="{{presentThese[3]}}" width="250" height="400">
+
 <br><br>
-<!-- <img src="{{presentThese[13]}}" width="250" height="400"> -->
-<!-- <img src="{{presentThese[14]}}" width="250" height="400"> -->
-<!-- <img src="{{presentThese[15]}}" width="250" height="400"> -->
+<a href="{{presentTheseLinks[4]}}">
+<img class="fade" src="{{presentThese[4]}}" width="250" height="400">
+</a>
+<a href="{{presentTheseLinks[5]}}">
+<img class="fade" src="{{presentThese[5]}}" width="250" height="400">
+</a>
+<a href="{{presentTheseLinks[6]}}">
+<img class="fade" src="{{presentThese[6]}}" width="250" height="400">
+</a>
+<a href="{{presentTheseLinks[7]}}">
+<img class="fade" src="{{presentThese[7]}}" width="250" height="400">
 </body>
 
 <!-- <br><br>
@@ -155,14 +184,14 @@
 </div> -->
 <!-- <h1> hope this works {{ recommend_pass[1] }} </h1> -->
 <br><br>
-
+<!-- <div><h3 id="fromFirstPage"> page one : {{age}}</h3></div> -->
 </div></div></div>
 
-<ul>
+<!-- <ul>
         {% for n in recommend_pass %}
         <li>{{n}}</li>
         {% endfor %}
-</ul>
+</ul> -->
 
 </body>
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% USEFUL BELOW HERE --> -->
